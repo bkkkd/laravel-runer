@@ -5,5 +5,8 @@ else
     composer update
 fi
 
+if [ ! -f "./.env" ]; then
+    php artisan key:generate
+fi
 php artisan migrate
-php artisan serve --host=0.0.0.0
+/usr/bin/supervisord -c /myapp/docker/supervisor/supervisord.conf
