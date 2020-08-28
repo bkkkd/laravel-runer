@@ -11,7 +11,8 @@ RUN yum install -y net-tools vim epel-release && \
     mv composer.phar /usr/local/bin/composer 
 
 RUN rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm && \
-    yum install -y msodbcsql17 mssql-tools  && \
+    ACCEPT_EULA=Y && \
+    yum  install -y msodbcsql17 mssql-tools  && \
     echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile && \
     echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc && \
     yum install -y unixODBC-devel && \
