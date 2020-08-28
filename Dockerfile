@@ -1,7 +1,6 @@
 FROM centos:7
 LABEL maintainer "Tim.Huang <tim@atim.cn>"
 RUN yum install -y net-tools vim epel-release && \
-    curl https://packages.microsoft.com/config/rhel/7/prod.repo > /etc/yum.repos.d/mssql-release.repo && \
     yum install -y supervisor && \
     rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm && \
     yum-config-manager --enable remi-php72 && \
@@ -11,7 +10,8 @@ RUN yum install -y net-tools vim epel-release && \
     php -r "unlink('composer-setup.php');" && \
     mv composer.phar /usr/local/bin/composer 
 
-RUN ACCEPT_EULA=Y yum  install -y msodbcsql17 mssql-tools  && \
+RUN curl https://packages.microsoft.com/config/rhel/7/prod.repo > /etc/yum.repos.d/mssql-release.repo && \
+    ACCEPT_EULA=Y yum  install -y msodbcsql17 mssql-tools  && \
     echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile && \
     echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc && \
     source ~/.bashrc && \
