@@ -10,6 +10,7 @@ RUN yum install -y net-tools vim epel-release && \
     php composer-setup.php && \
     php -r "unlink('composer-setup.php');" && \
     mv composer.phar /usr/local/bin/composer 
+
 RUN yum install -y msodbcsql17 mssql-tools  && \
     echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile && \
     echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc && \
