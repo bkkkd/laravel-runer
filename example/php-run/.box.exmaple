@@ -1,0 +1,10 @@
+
+## 容器名称
+#CONTAINERNAME=file-runer
+## 容器web服务开放的端口
+#WEBPORT=8011
+## 容器管理进程服务开放的web端口
+#ADMINPORT=
+## 容器可配置的参数项
+#OTHERPARAMS=
+
