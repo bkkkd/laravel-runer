@@ -18,7 +18,7 @@ RUN curl https://packages.microsoft.com/config/rhel/7/prod.repo > /etc/yum.repos
     yum install -y unixODBC-devel && \
     yum install -y php-sqlsrv
 
-VOLUME ["/myapp","/var/lib/mysql"]
+VOLUME ["/myapp","/app"]
 WORKDIR /myapp
 EXPOSE 8000 9001
 CMD ["/bin/sh","./run.sh"]
