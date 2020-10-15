@@ -1,7 +1,7 @@
 FROM centos:7
 LABEL maintainer "Tim.Huang <tim@atim.cn>"
 RUN yum install -y net-tools vim epel-release && \
-    yum install -y supervisor nginx zip unzip && \
+    yum install -y supervisor nginx zip unzip crontabs && \
     rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm && \
     yum-config-manager --enable remi-php72 && \
 	yum install -y  php-opcache php-pecl-apcu php-devel php-mbstring php-mcrypt php-mysqlnd php-phpunit-PHPUnit php-pdo php-pear php-fpm php-cli php-xml php-bcmath php-process php-gd php-common php-pecl-zip php-pecl-swoole4 php mariadb mariadb-server && \
