@@ -22,7 +22,7 @@ RUN yum install -y ImageMagick-devel bzip2 && \
     tar jxvf zbar-0.10.tar.bz2 && \
     cd zbar-0.10 && \
     ./configure --without-gtk --without-python --without-qt --disable-video --prefix=/usr/local/zbar && \
-    make && make install \
+    make && make install
 
 VOLUME ["/myapp","/app"]
 WORKDIR /myapp
