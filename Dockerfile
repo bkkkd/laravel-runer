@@ -17,6 +17,11 @@ RUN curl https://packages.microsoft.com/config/rhel/7/prod.repo > /etc/yum.repos
     source ~/.bashrc && \
     yum install -y unixODBC-devel && \
     yum install -y php-sqlsrv
+RUN wget -c http://jaist.dl.sourceforge.net/project/zbar/zbar/0.10/zbar-0.10.tar.bz2 && \
+    tar jxvf zbar-0.10.tar.bz2 && \
+    cd zbar-0.10 && \
+    ./configure --without-gtk --without-python --without-qt --disable-video --prefix=/usr/local/zbar && \
+    make && make install \
 
 VOLUME ["/myapp","/app"]
 WORKDIR /myapp
